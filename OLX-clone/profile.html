@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>User Profile - OLX Pakistan</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://logos-world.net/wp-content/uploads/2022/04/OLX-Logo.png" alt="OLX" width="50">
+                    </a>
+                </div>
+                <div class="profile-header">
+                    <button class="back-btn" onclick="history.back()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>User Profile</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h1>Demo User</h1>
+                        <p class="profile-email">demo@example.com</p>
+                        <p class="profile-joined">Member since January 2024</p>
+                    </div>
+                </div>
+                
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Active Ads</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Total Ads</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.8</div>
+                        <div class="stat-label">Rating</div>
+                    </div>
+                </div>
+                
+                <div class="profile-actions">
+                    <button class="action-btn primary" onclick="editProfile()">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+                    <button class="action-btn" onclick="viewMyAds()">
+                        <i class="fas fa-list"></i> My Ads
+                    </button>
+                    <button class="action-btn" onclick="viewFavorites()">
+                        <i class="fas fa-heart"></i> Favorites
+                    </button>
+                    <button class="action-btn" onclick="viewSettings()">
+                        <i class="fas fa-cog"></i> Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 OLX Pakistan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function editProfile() {
+            alert('Edit Profile - Coming soon!');
+        }
+        
+        function viewMyAds() {
+            alert('My Ads - Coming soon!');
+        }
+        
+        function viewFavorites() {
+            alert('Favorites - Coming soon!');
+        }
+        
+        function viewSettings() {
+            alert('Settings - Coming soon!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>OLX Pakistan - Buy and Sell</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://logos-world.net/wp-content/uploads/2022/04/OLX-Logo.png" alt="OLX" width="50">
+                    </a>
+                </div>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <select id="locationSelect">
+                        <option>Pakistan</option>
+                        <option>Karachi</option>
+                        <option>Lahore</option>
+                        <option>Islamabad</option>
+                        <option>Rawalpindi</option>
+                        <option>Faisalabad</option>
+                    </select>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Find Cars, Mobile Phones and more...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <div class="auth-buttons">
+                        <button id="loginBtn" class="login-btn">Login</button>
+                        <button id="sellBtn" class="sell-btn"><i class="fas fa-plus"></i> SELL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="banner">
+        <div class="container">
+            <div class="banner-content">
+                <h1>Buy and Sell everything from used cars to mobile phones and computers</h1>
+                <p>Find great deals on everything you need in Pakistan</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">All categories</h2>
+            <div class="category-grid">
+                <a href="#" class="category-item" data-category="all">
+                    <i class="fas fa-th-large"></i>
+                    <span>All categories</span>
+                </a>
+                <a href="categories/mobile-phones.html" class="category-item" data-category="mobiles">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobiles</span>
+                </a>
+                <a href="categories/cars.html" class="category-item" data-category="vehicles">
+                    <i class="fas fa-car"></i>
+                    <span>Vehicles</span>
+                </a>
+                <a href="categories/houses.html" class="category-item" data-category="property">
+                    <i class="fas fa-home"></i>
+                    <span>Property for Sale</span>
+                </a>
+                <a href="categories/property-rent.html" class="category-item" data-category="property-rent">
+                    <i class="fas fa-building"></i>
+                    <span>Property for Rent</span>
+                </a>
+                <a href="categories/tv-video-audio.html" class="category-item" data-category="electronics">
+                    <i class="fas fa-tv"></i>
+                    <span>Electronics</span>
+                </a>
+                <a href="categories/motorcycles.html" class="category-item" data-category="bikes">
+                    <i class="fas fa-motorcycle"></i>
+                    <span>Bikes</span>
+                </a>
+                <a href="categories/business.html" class="category-item" data-category="business">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Business</span>
+                </a>
+                <a href="categories/services.html" class="category-item" data-category="services">
+                    <i class="fas fa-tools"></i>
+                    <span>Services</span>
+                </a>
+                <a href="categories/jobs.html" class="category-item" data-category="jobs">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Jobs</span>
+                </a>
+                <a href="categories/animals.html" class="category-item" data-category="animals">
+                    <i class="fas fa-paw"></i>
+                    <span>Animals</span>
+                </a>
+                <a href="categories/furniture.html" class="category-item" data-category="furniture">
+                    <i class="fas fa-couch"></i>
+                    <span>Furniture</span>
+                </a>
+                <a href="categories/fashion.html" class="category-item" data-category="fashion">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Fashion</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <main class="main-content">
+        <div class="container">
+            <div class="content-header">
+                <h2>Fresh recommendations</h2>
+                <div class="view-toggle">
+                    <button id="gridView" class="active"><i class="fas fa-th"></i></button>
+                    <button id="listView"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+            
+            <div class="ads-container" id="adsContainer">
+                <!-- Ads will be loaded here -->
+            </div>
+            
+            <div class="load-more">
+                <button id="loadMoreBtn">Load more</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login to your account</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+        </div>
+    </div>
+
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create your account</h2>
+            <form id="signupForm">
+                <input type="text" id="signupName" placeholder="Full Name" required>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+        </div>
+    </div>
+
+    <div id="sellModal" class="modal">
+        <div class="modal-content sell-modal">
+            <span class="close">&times;</span>
+            <h2>Post your Ad</h2>
+            <form id="sellForm">
+                <select id="sellCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="mobiles">Mobiles</option>
+                    <option value="vehicles">Vehicles</option>
+                    <option value="property">Property for Sale</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="bikes">Bikes</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="fashion">Fashion</option>
+                </select>
+                <input type="text" id="sellTitle" placeholder="Ad title" required>
+                <textarea id="sellDescription" placeholder="Description" required></textarea>
+                <input type="number" id="sellPrice" placeholder="Price (PKR)" required>
+                <input type="text" id="sellLocation" placeholder="Location" required>
+                <input type="file" id="sellImages" multiple accept="image/*">
+                <button type="submit">Post Ad</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="adModal" class="modal">
+        <div class="modal-content ad-modal">
+            <span class="close">&times;</span>
+            <div id="adDetails">
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Popular Categories</h3>
+                    <ul>
+                        <li><a href="#">Cars</a></li>
+                        <li><a href="#">Flats for rent</a></li>
+                        <li><a href="#">Mobile Phones</a></li>
+                        <li><a href="#">Jobs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Popular Searches</h3>
+                    <ul>
+                        <li><a href="#">Bikes</a></li>
+                        <li><a href="#">Watches</a></li>
+                        <li><a href="#">Books</a></li>
+                        <li><a href="#">Dogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Legal & Privacy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 OLX Pakistan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCezLQDJLS-qxK-U4KFb8DYy0tJKsaCQyQ",
+            authDomain: "olx-clone-9252a.firebaseapp.com",
+            projectId: "olx-clone-9252a",
+            storageBucket: "olx-clone-9252a.firebasestorage.app",
+            messagingSenderId: "817287309327",
+            appId: "1:817287309327:web:78bed651f0ddea33e4db7a",
+            measurementId: "G-ZPWBV4F3ES"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="app.js"></script>
+</body>
+</html>

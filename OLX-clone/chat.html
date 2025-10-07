@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Chat - OLX Pakistan</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://logos-world.net/wp-content/uploads/2022/04/OLX-Logo.png" alt="OLX" width="50">
+                    </a>
+                </div>
+                <div class="chat-header">
+                    <button class="back-btn" onclick="history.back()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>Chat with Seller</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="chat-page">
+        <div class="container">
+            <div class="chat-container">
+                <div class="chat-header-info">
+                    <div class="seller-info">
+                        <div class="seller-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="seller-details">
+                            <h3>Demo User</h3>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message seller-message">
+                        <div class="message-content">
+                            <p>Hello! Thanks for your interest in my ad.</p>
+                            <span class="message-time">2:30 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Type your message...">
+                    <button onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user-message';
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <p>${message}</p>
+                    <span class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                </div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            input.value = '';
+            
+            setTimeout(() => {
+                const replyDiv = document.createElement('div');
+                replyDiv.className = 'message seller-message';
+                replyDiv.innerHTML = `
+                    <div class="message-content">
+                        <p>Thanks for your message! I'll get back to you soon.</p>
+                        <span class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                    </div>
+                `;
+                chatMessages.appendChild(replyDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+        }
+        
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

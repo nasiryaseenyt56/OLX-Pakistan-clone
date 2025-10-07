@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Cars for sale in Pakistan - OLX.com.pk</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html"><img src="https://logos-world.net/wp-content/uploads/2022/04/OLX-Logo.png" alt="OLX" width="50"></a>
+                </div>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <select id="locationSelect">
+                        <option>Pakistan</option>
+                        <option>Karachi</option>
+                        <option>Lahore</option>
+                        <option>Islamabad</option>
+                    </select>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Find Cars...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <div class="auth-buttons">
+                        <button id="loginBtn" class="login-btn">Login</button>
+                        <button id="sellBtn" class="sell-btn"><i class="fas fa-plus"></i> SELL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="../index.html">Home</a> > <span>Cars</span>
+        </div>
+    </div>
+
+    <section class="category-header">
+        <div class="container">
+            <h1><i class="fas fa-car"></i> Cars for sale in Pakistan</h1>
+            <p>Find the best car deals in Pakistan. Buy and sell new and used cars.</p>
+        </div>
+    </section>
+
+    <section class="filters">
+        <div class="container">
+            <div class="filter-row">
+                <select id="brandFilter">
+                    <option value="">All Brands</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="honda">Honda</option>
+                    <option value="suzuki">Suzuki</option>
+                    <option value="hyundai">Hyundai</option>
+                    <option value="kia">KIA</option>
+                    <option value="nissan">Nissan</option>
+                </select>
+                <select id="priceFilter">
+                    <option value="">All Prices</option>
+                    <option value="0-500000">Under Rs 5 Lakh</option>
+                    <option value="500000-1000000">Rs 5-10 Lakh</option>
+                    <option value="1000000-2000000">Rs 10-20 Lakh</option>
+                    <option value="2000000-99999999">Above Rs 20 Lakh</option>
+                </select>
+                <select id="yearFilter">
+                    <option value="">All Years</option>
+                    <option value="2020-2024">2020-2024</option>
+                    <option value="2015-2019">2015-2019</option>
+                    <option value="2010-2014">2010-2014</option>
+                    <option value="2000-2009">2000-2009</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="content-header">
+                <h2 id="resultsCount">Loading cars...</h2>
+                <div class="view-toggle">
+                    <button id="gridView" class="active"><i class="fas fa-th"></i></button>
+                    <button id="listView"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+            
+            <div class="ads-container" id="adsContainer"></div>
+            
+            <div class="load-more">
+                <button id="loadMoreBtn">Load more</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login to your account</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create your account</h2>
+            <form id="signupForm">
+                <input type="text" id="signupName" placeholder="Full Name" required>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+        </div>
+    </div>
+
+    <div id="sellModal" class="modal">
+        <div class="modal-content sell-modal">
+            <span class="close">&times;</span>
+            <h2>Post your Car Ad</h2>
+            <form id="sellForm">
+                <input type="hidden" id="sellCategory" value="cars">
+                <select id="brandSelect" required>
+                    <option value="">Select Brand</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="honda">Honda</option>
+                    <option value="suzuki">Suzuki</option>
+                    <option value="hyundai">Hyundai</option>
+                    <option value="kia">KIA</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="text" id="sellTitle" placeholder="e.g. Toyota Corolla 2020" required>
+                <textarea id="sellDescription" placeholder="Describe your car..." required></textarea>
+                <input type="number" id="sellPrice" placeholder="Price (PKR)" required>
+                <input type="number" id="yearInput" placeholder="Year" min="1990" max="2024" required>
+                <input type="text" id="sellLocation" placeholder="Location" required>
+                <input type="file" id="sellImages" multiple accept="image/*">
+                <button type="submit">Post Ad</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="adModal" class="modal">
+        <div class="modal-content ad-modal">
+            <span class="close">&times;</span>
+            <div id="adDetails"></div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCezLQDJLS-qxK-U4KFb8DYy0tJKsaCQyQ",
+            authDomain: "olx-clone-9252a.firebaseapp.com",
+            projectId: "olx-clone-9252a",
+            storageBucket: "olx-clone-9252a.firebasestorage.app",
+            messagingSenderId: "817287309327",
+            appId: "1:817287309327:web:78bed651f0ddea33e4db7a",
+            measurementId: "G-ZPWBV4F3ES"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="../category.js"></script>
+</body>
+</html>

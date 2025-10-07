@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Post Your Ad - OLX Pakistan</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://logos-world.net/wp-content/uploads/2022/04/OLX-Logo.png" alt="OLX" width="50">
+                    </a>
+                </div>
+                <div class="sell-header">
+                    <button class="back-btn" onclick="history.back()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>Post Your Ad</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="sell-page">
+        <div class="container">
+            <div class="sell-container">
+                <div class="sell-form-card">
+                    <h1>Create Your Ad</h1>
+                    <p>Fill in the details below to post your ad</p>
+                    
+                    <form id="sellPageForm">
+                        <div class="form-section">
+                            <h3>Category</h3>
+                            <select id="sellPageCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="mobiles">Mobiles</option>
+                                <option value="vehicles">Vehicles</option>
+                                <option value="property">Property for Sale</option>
+                                <option value="property-rent">Property for Rent</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="bikes">Bikes</option>
+                                <option value="business">Business</option>
+                                <option value="services">Services</option>
+                                <option value="jobs">Jobs</option>
+                                <option value="animals">Animals</option>
+                                <option value="furniture">Furniture</option>
+                                <option value="fashion">Fashion</option>
+                            </select>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Ad Details</h3>
+                            <input type="text" id="sellPageTitle" placeholder="Ad Title" required>
+                            <textarea id="sellPageDescription" placeholder="Describe your item..." required></textarea>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Price & Location</h3>
+                            <input type="number" id="sellPagePrice" placeholder="Price (PKR)" required>
+                            <select id="sellPageLocation" required>
+                                <option value="">Select Location</option>
+                                <option value="Karachi">Karachi</option>
+                                <option value="Lahore">Lahore</option>
+                                <option value="Islamabad">Islamabad</option>
+                                <option value="Rawalpindi">Rawalpindi</option>
+                                <option value="Faisalabad">Faisalabad</option>
+                                <option value="Multan">Multan</option>
+                            </select>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Photos</h3>
+                            <div class="image-upload">
+                                <input type="file" id="sellPageImages" multiple accept="image/*">
+                                <div class="upload-placeholder">
+                                    <i class="fas fa-camera"></i>
+                                    <p>Add up to 10 photos</p>
+                                    <span>Click to upload images</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Contact Information</h3>
+                            <input type="text" id="sellPageName" placeholder="Your Name" required>
+                            <input type="tel" id="sellPagePhone" placeholder="Phone Number" required>
+                            <input type="email" id="sellPageEmail" placeholder="Email Address" required>
+                        </div>
+
+                        <button type="submit" class="post-ad-btn">
+                            <i class="fas fa-plus"></i> Post Ad
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 OLX Pakistan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('sellPageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Ad posted successfully! (Demo mode)');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
